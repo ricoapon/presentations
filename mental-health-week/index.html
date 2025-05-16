@@ -20,8 +20,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
     <style>
-        body, .reveal {
-            font-family: "Caveat Brush", serif
+        :root {
+            --r-main-font: "Caveat Brush", serif;
+            /* I like the presentation better fully black-and-white. */
+            --r-link-color: white;
         }
 
         /* Header but without H1, since that is some screaming text.*/
@@ -95,8 +97,9 @@
         hash: true,
         transition: 'fade',
         backgroundTransition: 'fade',
+        // Don't go into scroll-view on mobile. I like the arrows better.
+        scrollActivationWidth: null,
         // Progress bar breaks immersion, so let's remove this.
-        scrollProgress: false,
         progress: false,
     });
 </script>
