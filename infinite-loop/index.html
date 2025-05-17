@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Taking A Break</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css"
+          integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/theme/black.min.css"
+          integrity="sha512-8xTQdrxFqvj1S4G+pM5d0AwjjKm5vHbi6gZwDX2FDq8HHvfPDf1BEIjBC0fvIh/EFiPeGdDVJZtx66b+4veM9g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script>
+        let canAccessFinalSlide = false;
+    </script>
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            First slide
+        </section>
+
+        <section>
+            Second slide
+            <button onclick="canAccessFinalSlide = true; Reveal.slide(3);">Click me</button>
+        </section>
+
+        <section>
+            Third slide
+        </section>
+
+        <!-- This slide should only be reachable by clicking the (hidden) button. -->
+        <section>
+            Final slide
+        </section>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js"
+        integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    Reveal.initialize({
+        // Slow fade fits better with this story type of presentation.
+        transitionSpeed: 'slow',
+        transition: 'fade',
+        backgroundTransition: 'fade',
+        // Don't go into scroll-view on mobile. I like the arrows better.
+        scrollActivationWidth: null,
+        // Progress bar breaks immersion, so let's remove this.
+        progress: false,
+
+        controlsBackArrows: "hidden",
+    });
+
+    Reveal.on('slidechanged', (event) => {
+        // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+        // If we reach the fourth slide, we go back to 1 again.
+        if (event.indexh === 3 && !canAccessFinalSlide) {
+            Reveal.slide(0);
+        }
+    });
+</script>
+
+</body>
+</html>
