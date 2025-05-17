@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Taking A Break</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css"
+          integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/theme/black.min.css"
+          integrity="sha512-8xTQdrxFqvj1S4G+pM5d0AwjjKm5vHbi6gZwDX2FDq8HHvfPDf1BEIjBC0fvIh/EFiPeGdDVJZtx66b+4veM9g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/monokai.min.css"
+          integrity="sha512-z8wQkuDRFwCBfoj7KOiu1MECaRVoXx6rZQWL21x0BsVVH7JkqCp1Otf39qve6CrCycOOL5o9vgfII5Smds23rg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">      <style>
+        :root {
+            --r-main-font: "Fira Code", monospace;
+            --r-heading-font: "Fira Code", monospace;
+            /* Slightly lower the font-size, otherwise lines will wrap around to the next line. */
+            --r-main-font-size: 35px;
+
+            --r-background-color: #000913;
+
+            /* This makes it possible to put each line into a p-tag without all this additional whitespace around it. */
+            --r-block-margin: 0px;
+        }
+
+        .oracle-font {
+            color: var(--r-link-color) !important;
+        }
+
+        .fragment {
+            /* Fade in text slower for a bit more dramatic effect. */
+            transition: opacity 2s ease !important;
+        }
+
+        img {
+            width: 40%;
+
+            /* Fading the edges using a mask. This makes the images blend better with the background. */
+            -webkit-mask-image: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+            mask-image: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <div>
+                <h1 class="oracle-font">The Debug Oracle</h1>
+                <p>A journey through stack traces</p>
+            </div>
+        </section>
+
+        <section>
+            <img src="2.png" alt="2">
+            <p>There was a bug.</p>
+            <p class="fragment fade-in">A bug that changed its shape with each run.</p>
+            <p class="fragment fade-in">Each stack trace more cryptic than the last.</p>
+        </section>
+
+        <section>
+            <div class="faded-image">
+                <img src="3.png" alt="3">
+            </div>
+            <p>So the developer climbed.</p>
+            <p class="fragment fade-in">Up the slopes of Mount Overflow.</p>
+            <p class="fragment fade-in">Towards the Debug Oracle.</p>
+        </section>
+
+        <section>
+            <img src="4.png" alt="4">
+            <p>He arrived and the gates opened.</p>
+            <p class="fragment fade-in">"<span class="oracle-font">State your problem</span>", the Oracle boomed.</p>
+            <p class="fragment fade-in">"I keep getting this stack trace."</p>
+        </section>
+
+        <section>
+            <img src="5.png" alt="5">
+            <p>The oracle stared into the stack trace.</p>
+            <p class="fragment fade-in">"<span class="oracle-font">Ah</span>", it said.</p>
+            <p class="fragment fade-in">"<span class="oracle-font">You forgot to clear your cache</span>".</p>
+        </section>
+
+        <section>
+            <img src="6.png" alt="6">
+            <p>The bug was fixed.</p>
+            <p class="fragment fade-in">The world returned its normal state.</p>
+            <p class="fragment fade-in">But the developer was never the same again.</p>
+        </section>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js"
+        integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    Reveal.initialize({
+        // Slow fade fits better with this story type of presentation.
+        transitionSpeed: 'slow',
+        transition: 'fade',
+        backgroundTransition: 'fade',
+        // Don't go into scroll-view on mobile. I like the arrows better.
+        scrollActivationWidth: null,
+        // Progress bar breaks immersion, so let's remove this.
+        progress: false,
+    });
+</script>
+
+</body>
+</html>
